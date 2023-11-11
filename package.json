@@ -17,10 +17,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "prepare": "husky install",
+    "lint": "eslint . --fix --max-warnings=0",
+    "format": "prettier . --write"
   },
   "eslintConfig": {
     "extends": [
@@ -39,5 +42,52 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@craco/craco": "^7.1.0",
+    "@typescript-eslint/eslint-plugin": "^6.10.0",
+    "@typescript-eslint/parser": "^6.10.0",
+    "eslint": "^8.53.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-import-resolver-typescript": "^3.6.1",
+    "eslint-plugin-import": "^2.29.0",
+    "eslint-plugin-prettier": "^5.0.1",
+    "eslint-plugin-react": "^7.33.2",
+    "husky": "^8.0.0",
+    "lint-staged": "^15.1.0",
+    "prettier": "^3.0.3",
+    "ts-jest": "^29.1.1"
+  },
+  "lint-staged": {
+    "*.{js, jsx,ts,tsx}": [
+      "eslint --quiet --fix"
+    ],
+    "*.{json,js,ts,jsx,tsx,html}": [
+      "prettier --write --ignore-unknown"
+    ],
+    "*.js": "eslint --cache --fix"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "@root/(.*)": "<rootDir>/$1",
+      "@src/(.*)": "<rootDir>/src/$1",
+      "@components/(.*)": "<rootDir>/src/components/$1",
+      "@pages/(.*)": "<rootDir>/src/pages/$1",
+      "@styles/(.*)": "<rootDir>/src/styles/$1",
+      "@utils/(.*)": "<rootDir>/src/utils/$1",
+      "@hooks/(.*)": "<rootDir>/src/hooks/$1",
+      "@assets/(.*)": "<rootDir>/src/assets/$1",
+      "@types/(.*)": "<rootDir>/src/types/$1",
+      "@constants/(.*)": "<rootDir>/src/constants/$1",
+      "@services/(.*)": "<rootDir>/src/services/$1",
+      "@config/(.*)": "<rootDir>/src/config/$1",
+      "@store/(.*)": "<rootDir>/src/store/$1",
+      "@routes/(.*)": "<rootDir>/src/routes/$1",
+      "@layouts/(.*)": "<rootDir>/src/layouts/$1",
+      "@mocks/(.*)": "<rootDir>/src/mocks/$1",
+      "@context/(.*)": "<rootDir>/src/context/$1",
+      "@models/(.*)": "<rootDir>/src/models/$1",
+      "@api/(.*)": "<rootDir>/src/api/$1"
+    }
   }
 }

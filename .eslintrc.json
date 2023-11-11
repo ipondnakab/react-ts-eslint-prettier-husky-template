@@ -1,0 +1,65 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "prettier" // prettier
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "sourceType": "module"
+  },
+  "plugins": ["@typescript-eslint", "react", "prettier"], // prettier
+  "rules": {
+    "no-console": "error",
+    "unused-imports/no-unused-imports": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-var-requires": "off"
+  },
+  "ignorePatterns": ["node_modules/", "build/"], // prettier
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/parsers": {
+      "@typescript-eslint/parser": [".ts", ".tsx"]
+    },
+    "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./tsconfig.json"
+      },
+      "alias": {
+        "map": [
+          ["@components", "./src/components"],
+          ["@pages", "./src/pages"],
+          ["@styles", "./src/styles"],
+          ["@utils", "./src/utils"],
+          ["@hooks", "./src/hooks"],
+          ["@assets", "./src/assets"],
+          ["@types", "./src/types"],
+          ["@constants", "./src/constants"],
+          ["@services", "./src/services"],
+          ["@config", "./src/config"],
+          ["@store", "./src/store"],
+          ["@routes", "./src/routes"],
+          ["@layouts", "./src/layouts"],
+          ["@mocks", "./src/mocks"],
+          ["@contexts", "./src/contexts"],
+          ["@models", "./src/models"],
+          ["@api", "./src/api"],
+          ["@src", "./src"]
+        ],
+        "extensions": [".ts", ".tsx", ".js", ".jsx", ".json"]
+      }
+    }
+  }
+}
